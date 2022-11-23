@@ -2,9 +2,11 @@ import { useEffect }from 'react'
 import { useEventsContext } from "../hooks/useEventsContext"
 import { useAuthContext } from "../hooks/useAuthContext"
 
+
 // components
 import EventDetails from '../components/EventDetails'
 import EventForm from '../components/EventForm'
+import MyCalendar from '../components/MyCalendar'
 
 const Home = () => {
   const {events, dispatch} = useEventsContext()
@@ -31,14 +33,19 @@ const Home = () => {
   }, [dispatch, user])
 
   return (
+    <>
+      
     <div className="home">
       <div className="events">
         {events && events.map((event) => (
           <EventDetails key={event._id} event={event} />
         ))}
+        <MyCalendar/>
       </div>
+      
       <EventForm />
     </div>
+    </>
   )
 }
 
