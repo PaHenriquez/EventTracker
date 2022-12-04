@@ -1,27 +1,33 @@
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { useAuthContext } from '../hooks/useAuthContext'
 
+const MyCalendar = () => { 
 const localizer = momentLocalizer(moment)
 
-const MyCalendar = ({events}) => { 
-  const { user } = useAuthContext()
-  const mapToRBCFormat = e => Object.assign({}, e, {
-    start: new Date(e.Date),
-    end: new Date(e.Date), 
-    name: events.name
-})
- //if user has no value, return and skip the api response
-    if (!user) {
-      return
+const events = [
+    {
+        title: "Big Meeting",
+        allDay: true,
+        start: new Date(2022, 12, 0),
+        end: new Date(2022, 12, 0),
+    },
+    {
+        title: "Vacation",
+        start: new Date(2022, 12, 7),
+        end: new Date(2022, 12, 10),
+    },
+    {
+        title: "Conference",
+        start: new Date(2021, 12, 20),
+        end: new Date(2021, 12, 23),
     }
-  
+];
   return(
 
         <div>
           <Calendar
-            events={events && events.map(mapToRBCFormat)}
+            events={events}
             localizer={localizer}
             startAccessor="start"
             endAccessor="end"
