@@ -40,7 +40,7 @@ const Home = () => {
         {events && events.map((event) => (
           <EventDetails key={event._id} event={event} />
         ))}
-        <MyCalendar/>
+        <MyCalendar events={events}/>
       </div>
       
       <EventForm />

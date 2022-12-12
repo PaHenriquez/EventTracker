@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const eventSchema = new Schema({
-  event_name: {
+  title: {
     type: String,
     required: true
   },
@@ -11,7 +11,11 @@ const eventSchema = new Schema({
     type: String,
     required: true
   },
-  date: {
+  start: {
+    type: Date,
+    required: true
+  },
+   end: {
     type: Date,
     required: true
   },
