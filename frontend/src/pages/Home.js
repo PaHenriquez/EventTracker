@@ -33,14 +33,16 @@ const Home = () => {
   }, [dispatch, user])
 
   return (
+
     <>
       
     <div className="home">
       <div className="events">
+     
         {events && events.map((event) => (
           <EventDetails key={event._id} event={event} />
         ))}
-        <MyCalendar events={events}/>
+            <MyCalendar  event={events} />
       </div>
       
       <EventForm />

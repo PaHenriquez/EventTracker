@@ -52,7 +52,7 @@ const EventDetails = ({ event }) => {
   }
   return (
     <div className="event-details">
-      <h4>{ event.event_name}</h4>
+      <h4>{event.title}</h4>
       <p><strong>Start Date: </strong>{sliced_date_start}</p>
       <p><strong>Start Time: </strong>{sliced_time_start}</p>
       <p><strong>Start Date: </strong>{sliced_date_end}</p>
