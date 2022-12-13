@@ -5,8 +5,20 @@ const mongoose = require('mongoose')
 const getEvents = async (req, res) => {
   //get user id
   const user_id = req.user._id
+
+  // setting up filter query
+  const filters = {user_id: user_id, ...req.query};
+  
+  if(filters.address){filters.address = {$regex: filters.address}};
+  
+  if(filters.title){filters.title = {$regex: filters.title}};
+
+  if(filters.start)(filters.start = {$gte: filters.start});
+
+  if(filters.end)(filters.start = {$lte: filters.end});
+
   //get all events associated with that user id
-  const events = await Event.find({ user_id }).sort({createdAt: -1})
+  const events = await Event.find(filters).sort({createdAt: -1})
 
   res.status(200).json(events)
 }
