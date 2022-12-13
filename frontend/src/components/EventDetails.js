@@ -55,8 +55,8 @@ const EventDetails = ({ event }) => {
       <h4>{event.title}</h4>
       <p><strong>Start Date: </strong>{sliced_date_start}</p>
       <p><strong>Start Time: </strong>{sliced_time_start}</p>
-      <p><strong>Start Date: </strong>{sliced_date_end}</p>
-      <p><strong>Start Time: </strong>{sliced_time_end}</p>
+      <p><strong>End Date: </strong>{sliced_date_end}</p>
+      <p><strong>End Time: </strong>{sliced_time_end}</p>
       <p><strong>Address: </strong>{event.address}</p><br></br>
       <p align="right" >created {formatDistanceToNow(new Date(event.createdAt), { addSuffix: true })}</p>
       <span className="material-symbols-outlined" onClick={handleClick}>delete</span>

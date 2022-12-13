@@ -70,15 +70,14 @@ const EventForm = () => {
         value={address}
         className={emptyFields.includes('address') ? 'error' : ''}
       />
-  
-
-      <label>Event Date:</label>
+      <label>Start date and time:</label>
       <input 
         type="datetime-local"
         onChange={(e) => setStartDate(e.target.value)}
         value={start}
         className={emptyFields.includes('start') ? 'error' : ''}
       />
+      <label>Start date and time:</label>
       <input 
         type="datetime-local"
         onChange={(e) => setEndDate(e.target.value)}

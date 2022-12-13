@@ -12,6 +12,15 @@ const Home = () => {
   const {events, dispatch} = useEventsContext()
   const {user} = useAuthContext()
 
+  const backup_events = [
+    {
+        title: "Back up events",
+        start: new Date(2022, 12, 12),
+        end: new Date(2022, 12, 12),
+    },
+  
+];
+
   useEffect(() => {
     const fetchEvents = async () => {
       const response = await fetch('/api/events', {
@@ -42,7 +51,13 @@ const Home = () => {
         {events && events.map((event) => (
           <EventDetails key={event._id} event={event} />
         ))}
-            <MyCalendar  event={events} />
+        {events != null ? (
+          <MyCalendar  events= {events} />
+        ):
+        (
+          <MyCalendar  events= {backup_events} />
+        )}
+          
       </div>
       
       <EventForm />
