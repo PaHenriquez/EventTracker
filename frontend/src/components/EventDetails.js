@@ -28,23 +28,35 @@ const EventDetails = ({ event }) => {
       dispatch({type: 'DELETE_EVENT', payload: json})
     }
   }
-
+  
+// for start date
   //first convert from UTC to local time using Date()
-  var formatted_date = new Date(event.date)
-  if (formatted_date) {
+  var formatted_date_start = new Date(event.start)
+  if (formatted_date_start) {
     //used to display date and time separately
-    //formatted_date has both date and time in its format
-    var sliced_date = formatted_date.toLocaleDateString()
-    var sliced_time = formatted_date.toLocaleTimeString()
+    //formatted_date_start has both date and time in its format
+    var sliced_date_start = formatted_date_start.toLocaleDateString()
+    var sliced_time_start = formatted_date_start.toLocaleTimeString()
+  }
+
+// for end date 
+    //first convert from UTC to local time using Date()
+  var formatted_date_end = new Date(event.end)
+  if (formatted_date_end) {
+    //used to display date and time separately
+    //formatted_date_end has both date and time in its format
+    var sliced_date_end = formatted_date_end.toLocaleDateString()
+    var sliced_time_end = formatted_date_end.toLocaleTimeString()
     //console.log(sliced_date)
     //console.log(sliced_time)
   }
-
   return (
     <div className="event-details">
-      <h4>{event.event_name}</h4>
-      <p><strong>Date: </strong>{sliced_date}</p>
-      <p><strong>Time: </strong>{sliced_time}</p>
+      <h4>{event.title}</h4>
+      <p><strong>Start Date: </strong>{sliced_date_start}</p>
+      <p><strong>Start Time: </strong>{sliced_time_start}</p>
+      <p><strong>End Date: </strong>{sliced_date_end}</p>
+      <p><strong>End Time: </strong>{sliced_time_end}</p>
       <p><strong>Address: </strong>{event.address}</p><br></br>
       <p align="right" >created {formatDistanceToNow(new Date(event.createdAt), { addSuffix: true })}</p>
       <span className="material-symbols-outlined" onClick={handleClick}>delete</span>

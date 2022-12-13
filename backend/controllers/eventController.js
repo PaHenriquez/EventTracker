@@ -31,18 +31,21 @@ const getEvent = async (req, res) => {
 
 // create new event
 const createEvent = async (req, res) => {
-  const {event_name, address, date} = req.body
+  const {title, address, start, end} = req.body
 
   let emptyFields = []
 
-  if(!event_name) {
-    emptyFields.push('event_name')
+  if(!title) {
+    emptyFields.push('title')
   }
   if(!address) {
     emptyFields.push('address')
   }
-  if(!date) {
-    emptyFields.push('date')
+  if(!start) {
+    emptyFields.push('start')
+  }
+  if(!end) {
+    emptyFields.push('end')
   }
   if(emptyFields.length > 0) {
     return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
@@ -53,7 +56,7 @@ const createEvent = async (req, res) => {
     //grab id of user and store it in the db ALONG with the event info
     //must need in order to assign events to different users or else everyone will have the same generic events
     const user_id = req.user._id
-    const event = await Event.create({event_name, address, date, user_id})
+    const event = await Event.create({title, address, start,end, user_id})
     res.status(200).json(event)
   } catch (error) {
     res.status(400).json({error: error.message})

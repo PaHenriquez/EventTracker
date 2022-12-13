@@ -6,9 +6,10 @@ const EventForm = () => {
   const { dispatch } = useEventsContext()
   const { user } = useAuthContext()
 
-  const [event_name, setEvent] = useState('')
+  const [title, setEventTitle] = useState('')
   const [address, setAddress] = useState('')
-  const [date, setDate] = useState('')
+  const [start, setStartDate] = useState('')
+   const [end, setEndDate] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
@@ -21,7 +22,7 @@ const EventForm = () => {
       return
     }
 
-    const event = {event_name, address, date}
+    const event = {title, address, start, end}
 
     const response = await fetch('/api/events', {
       method: 'POST',
@@ -38,9 +39,10 @@ const EventForm = () => {
       setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
-      setEvent('')
+      setEventTitle('')
       setAddress('')
-      setDate('')
+      setStartDate('')
+      setEndDate('')
       setError(null)
       setEmptyFields([])
       console.log('new event added', json)
@@ -55,9 +57,10 @@ const EventForm = () => {
       <label>Event Name:</label>
       <input 
         type="text"
-        onChange={(e) => setEvent(e.target.value)}
-        value={event_name}
-        className={emptyFields.includes('event_name') ? 'error' : ''}
+        onChange={(e) => setEventTitle(e.target.value)}
+        value={title}
+        className={emptyFields.includes('title') ? 'error' : ''}
+
       />
 
       <label>Address:</label>
@@ -67,15 +70,20 @@ const EventForm = () => {
         value={address}
         className={emptyFields.includes('address') ? 'error' : ''}
       />
-
-      <label>Event Date:</label>
+      <label>Start date and time:</label>
       <input 
         type="datetime-local"
-        onChange={(e) => setDate(e.target.value)}
-        value={date}
-        className={emptyFields.includes('date') ? 'error' : ''}
+        onChange={(e) => setStartDate(e.target.value)}
+        value={start}
+        className={emptyFields.includes('start') ? 'error' : ''}
       />
-
+      <label>Start date and time:</label>
+      <input 
+        type="datetime-local"
+        onChange={(e) => setEndDate(e.target.value)}
+        value={end}
+        className={emptyFields.includes('end') ? 'error' : ''}
+      />
       <button>Add Event</button>
       {error && <div className="error">{error}</div>}
     </form>
