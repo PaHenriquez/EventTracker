@@ -10,7 +10,7 @@ The following functionalities are **required**:
 - [x] User can sign up and login (emails must be encrypted in the database)
 - [x] Landing page after successful login should only display data/events associated with that user
 - [x] Allow users to add events, delete events, and <ins>update events (Backend: Complete | Frontend: In Progress).</ins>
-- [ ] Implement a calendar design to draw out the events from that user onto the frontend
+- [x] Implement a calendar design to draw out the events from that user onto the frontend
 
 Other optional functionalities:
 - [ ] Search Filters
