@@ -51,16 +51,19 @@ const Home = () => {
         {events && events.map((event) => (
           <EventDetails key={event._id} event={event} />
         ))}
+        <div className='calendar'>
         {events != null ? (
           <MyCalendar  events= {events} />
         ):
         (
           <MyCalendar  events= {backup_events} />
         )}
+        </div>
           
       </div>
-      
+      <div className='eventform'>
       <EventForm />
+      </div>
     </div>
     </>
   )
