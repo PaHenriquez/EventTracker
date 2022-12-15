@@ -31,6 +31,12 @@ userSchema.statics.signup = async function(firstName, lastName, email, password)
     if (!firstName || !lastName || !email || !password){
         throw Error('All fields are required')
     }
+
+    //check for bad name inputs
+    if(!validator.isAlpha(firstName) || !validator.isAlpha(lastName)){
+        throw Error("Name can not have numbers or special characters");
+    }
+    
     //validation for email 
     if (!validator.isEmail(email)){
         throw Error ('Email is not valid')
