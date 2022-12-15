@@ -2,6 +2,8 @@
 
 The purpose of **EventTracker** is to give people a way to organize their tasks in a calendar-like web application. This responsive web design will help sort out events designated for specific days and can be accessed through the web or on a mobile device as well.
 
+EventTracker demo link - https://eventtrackerdemo.onrender.com
+
 
 ## User Stories
 
@@ -12,13 +14,10 @@ The following functionalities are **required**:
 - [x] Allow users to add events, delete events, and <ins>update events (Backend: Complete | Frontend: In Progress).</ins>
 - [x] Implement a calendar design to draw out the events from that user onto the frontend
 
-Other optional functionalities:
-- [ ] Search Filters
+Future Improvements:
+- [ ] Search Filters (Currently works with Postman only)
 - [ ] Sorting Functionality by event name/date
-- [ ] Date filters for event list (range: in a week, in a month, in 2 months, within the year)
-- [ ] Notes/Reminder page
-- [ ] Profile Page (for more user information)
-- [ ] A Chat for those attending the same events
+- [ ] Date filters for event list (range: in a week, in a month, in 2 months, within the year) (Currently works with Postman only)
 
 ## Notes
 
