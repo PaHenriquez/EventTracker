@@ -7,12 +7,12 @@
   --error: #e7195a;
 }
 body {
-  background: #f1f1f1;
+  background:#eceab7;
   margin: 0;
   font-family: "Poppins";
 }
 header {
-  background: #fff;
+  background: #d48277;
 }
 header .container {
   max-width: 1400px;
@@ -34,12 +34,13 @@ header a {
 
 /* homepage */
 .home {
+  background-color: white;
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
 .event-details {
-  background: #fff;
+  background:#e8f6ec;
   border-radius: 4px;
   margin: 15px auto;
   padding: 20px;
@@ -70,24 +71,28 @@ header a {
 /* new event form */
 label, input {
   display: block;
+    margin-left: 20px;
 }
 input {
   padding: 10px;
+  margin-left: 20px;
   margin-top: 10px;
   margin-bottom: 20px;
-  width: 100%;
+  width: 90%;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
 }
 form button {
-  background: #1aa5ac;
+  background: #000000;
   border: 0;
-  color: #fff;
+  color: #ffffff;
   padding: 10px;
+  margin-left: 120px;
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;
+ 
 }
 div.error {
   padding: 10px;
@@ -125,6 +130,23 @@ form.signup, form.login {
   max-width: 400px;
   margin: 40px auto;
   padding: 20px;
-  background: #fff;
+  background: #A7BEAE;
   border-radius: 4px;
 }
+.calendar{
+background-color: #e8f6ec;
+}
+.events{
+ background-color : #eceab7
+}
+.create{
+  background-color: #e8f6ec;
+}
+.create h3{
+  margin-left: 20px;
+}
+.home{
+  background-color : #eceab7;
+}
+
+
